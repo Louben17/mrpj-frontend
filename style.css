@@ -5,15 +5,28 @@ body {
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    background-color: #f4f4f9;
+    background-color: #f0f0f0;
 }
 
 .container {
     text-align: center;
 }
 
+h1, h2 {
+    color: #333;
+}
+
+.instagram-feed {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
 .instagram-feed img {
     width: 200px;
-    height: auto;
-    margin: 10px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
 }
