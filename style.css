@@ -1,0 +1,19 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f4f4f9;
+}
+
+.container {
+    text-align: center;
+}
+
+.instagram-feed img {
+    width: 200px;
+    height: auto;
+    margin: 10px;
+}
