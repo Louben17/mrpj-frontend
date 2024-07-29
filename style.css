@@ -1,32 +1,47 @@
 body {
     font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+    text-align: center;
+    background-color: #f4f4f4;
     margin: 0;
-    background-color: #f0f0f0;
+    padding: 0;
 }
 
 .container {
-    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-h1, h2 {
+h1 {
+    margin-top: 0;
+}
+
+h2 a {
     color: #333;
+    text-decoration: none;
+}
+
+h2 a:hover {
+    text-decoration: underline;
 }
 
 .instagram-feed {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 10px;
-    margin-top: 20px;
+    justify-content: center;
 }
 
 .instagram-feed img {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
+    width: 100%;
+    height: auto;
     border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.instagram-feed img:hover {
+    transform: scale(1.05);
 }
