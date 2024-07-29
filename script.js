@@ -1,6 +1,6 @@
 async function fetchInstagramFeed() {
     try {
-        const response = await fetch('https://your-backend.vercel.app/instagram-feed');
+        const response = await fetch('https://mrpj-backend.vercel.app/instagram-feed');
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
