@@ -1,81 +1,96 @@
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f5f5dc;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5dc;
 }
 
 .App {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  padding: 20px;
-  box-sizing: border-box;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-.container {
-  max-width: 800px;
-  margin: 0 auto;
+.header {
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .logo {
-  max-width: 75%;
-  height: auto;
-  margin-bottom: 20px;
+    max-width: 75%;
+    height: auto;
+    margin-bottom: 20px;
 }
 
 h1 {
-  font-size: 1.8rem;
-  color: #333;
-  margin-bottom: 10px;
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 10px;
 }
 
 p {
-  font-size: 1rem;
-  color: #666;
-  margin-bottom: 30px;
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 0 20px;
 }
 
 .instagram-feed {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  flex-wrap: wrap;
-  max-width: 1000px;
-  margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 .instagram-post {
-  width: calc(20% - 10px);
-  max-width: 150px;
+    width: calc(20% - 10px);
+    max-width: 150px;
 }
 
 .instagram-post img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  aspect-ratio: 1 / 1;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    aspect-ratio: 1 / 1;
 }
 
 .error {
-  color: red;
+    color: red;
+}
+
+.footer {
+    background-color: #e6e6d1;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.footer p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #666;
 }
 
 @media (max-width: 800px) {
-  h1 {
-      font-size: 1.5rem;
-  }
-  p {
-      font-size: 0.9rem;
-  }
-  .instagram-post {
-      width: calc(33.33% - 10px);
-      max-width: none;
-  }
+    h1 {
+        font-size: 1.5rem;
+    }
+    p {
+        font-size: 0.9rem;
+    }
+    .instagram-post {
+        width: calc(33.33% - 10px);
+        max-width: none;
+    }
 }
 
 @media (max-width: 500px) {
-  .instagram-post {
-      width: calc(50% - 10px);
-  }
+    .instagram-post {
+        width: calc(50% - 10px);
+    }
 }
