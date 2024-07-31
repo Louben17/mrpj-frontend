@@ -12,7 +12,6 @@ function App() {
     const fetchInstagramPosts = async () => {
       try {
         const response = await axios.get('https://mrpj-backend.vercel.app/api/instagram');
-        // Filtrujeme pouze příspěvky s obrázky a omezíme na 5
         const imagePosts = response.data.filter(post => post.media_type === 'IMAGE').slice(0, 5);
         setInstagramPosts(imagePosts);
         setLoading(false);
@@ -28,12 +27,12 @@ function App() {
 
   return (
     <div className="App">
-      <div className="container">
+      <header className="header">
         <img src={logo} alt="Logo" className="logo" />
         <h1>Spuštění e-shopu chystáme na podzim</h1>
         <p>MRPJ - ručně vyráběné cementové výrobky a 100% sojové svíčky</p>
-      </div>
-      <main>
+      </header>
+      <main className="main-content">
         {loading && <p>Načítání Instagram příspěvků...</p>}
         {error && <p className="error">{error}</p>}
         <div className="instagram-feed">
@@ -46,6 +45,9 @@ function App() {
           ))}
         </div>
       </main>
+      <footer className="footer">
+        <p>Vyrobeno ručně v Hradci Králové</p>
+      </footer>
     </div>
   );
 }
