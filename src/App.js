@@ -30,7 +30,7 @@ function App() {
       <header className="header">
         <img src={logo} alt="Logo" className="logo" />
         <h1>Spuštění e-shopu chystáme na podzim</h1>
-        <p>MRPJ - ručně vyráběné cementové výrobky a 100% sojové svíčky</p>
+        <p>MRPJ - ručně vyráběné designové výrobky a 100% sojové svíčky</p>
       </header>
       <main className="main-content">
         {loading && <p>Načítání Instagram příspěvků...</p>}
