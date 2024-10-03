@@ -7,22 +7,25 @@ function App() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    useEffect(() => {
-        const fetchInstagramPosts = async () => {
-            try {
-                const response = await axios.get('https://mrpj-backend.vercel.app/api/instagram');
-                const posts = response.data; // Zde už nemusíš filtrovat na IMAGE, pokud chceš mít všechny
-                setInstagramPosts(posts);
-                setLoading(false);
-            } catch (error) {
-                console.error('Error fetching Instagram posts:', error);
-                setError('Nepodařilo se načíst Instagram příspěvky. Zkuste to prosím později.');
-                setLoading(false);
-            }
-        };
+useEffect(() => {
+    const fetchInstagramPosts = async () => {
+        try {
+            const response = await axios.get('https://mrpj-backend.vercel.app/api/instagram');
+            const allPosts = response.data; // Vezmi všechny příspěvky
 
-        fetchInstagramPosts();
-    }, []);
+            // Vyber pouze první 4 příspěvky
+            const limitedPosts = allPosts.slice(0, 4);
+            setInstagramPosts(limitedPosts);
+            setLoading(false);
+        } catch (error) {
+            console.error('Error fetching Instagram posts:', error);
+            setError('Nepodařilo se načíst Instagram příspěvky. Zkuste to prosím později.');
+            setLoading(false);
+        }
+    };
+
+    fetchInstagramPosts();
+}, []);
 
     return (
         <div className="instagram-feed">
