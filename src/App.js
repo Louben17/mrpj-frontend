@@ -11,8 +11,7 @@ function App() {
     const fetchInstagramPosts = async () => {
       try {
         const response = await axios.get('https://mrpj-backend.vercel.app/api/instagram');
-        const imagePosts = response.data.filter(post => post.media_type === 'IMAGE').slice(0, 5);
-        setInstagramPosts(imagePosts);
+        setInstagramPosts(response.data); // Uložíme všechny příspěvky
         setLoading(false);
       } catch (error) {
         console.error('Error fetching Instagram posts:', error);
@@ -31,7 +30,14 @@ function App() {
       {instagramPosts.map((post) => (
         <div key={post.id} className="instagram-post">
           <a href={post.permalink} target="_blank" rel="noopener noreferrer">
-            <img src={post.media_url} alt={post.caption} />
+            {post.media_type === 'IMAGE' ? (
+              <img src={post.media_url} alt={post.caption} />
+            ) : post.media_type === 'REEL' ? (
+              <video controls>
+                <source src={post.media_url} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            ) : null}
           </a>
         </div>
       ))}
