@@ -49,72 +49,24 @@ p {
 }
 
 .instagram-post {
-    width: calc(20% - 10px);
-    max-width: 150px;
-}
-
-.instagram-post img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    aspect-ratio: 1 / 1;
-}
-
-.error {
-    color: red;
-}
-
-.footer {
-    background-color: #e6e6d1;
-    padding: 10px;
-    margin-top: 20px;
-}
-
-.footer p {
-    margin: 0;
-    font-size: 0.9rem;
-    color: #666;
-}
-
-.instagram-post video {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    aspect-ratio: 1 / 1; /* Zajišťuje, že videa mají stejný poměr stran jako obrázky */
-}
-
-.instagram-feed {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; /* Zarovnání na střed */
-    gap: 10px; /* Mezera mezi příspěvky */
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.instagram-post {
     width: calc(25% - 10px); /* Čtyři sloupce */
     max-width: 250px; /* Maximální šířka */
     height: 250px; /* Maximální výška pro čtverce */
     overflow: hidden; /* Skrytí přetékajícího obsahu */
-    border-radius: 10px; /* Zaoblení rohů */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Stín */
-    transition: transform 0.2s; /* Efekt při najetí myší */
-}
-
-.instagram-post:hover {
-    transform: scale(1.05); /* Zvětšení na hover */
+    /* Zrušení zaoblených rohů a zvětšování při hover */
+    border-radius: 0; /* Zrušení zaoblených rohů */
+    box-shadow: none; /* Zrušení stínu */
+    transition: none; /* Zrušení efektu při najetí myší */
 }
 
 .instagram-post img,
 .instagram-post video {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Zajištění, že obrázky/ videa vyplní celý prostor */
+    object-fit: cover; /* Zajištění, že obrázky/videa vyplní celý prostor */
 }
 
-
-
+/* Responsivní úpravy */
 @media (max-width: 800px) {
     h1 {
         font-size: 1.5rem;
@@ -123,15 +75,13 @@ p {
         font-size: 0.9rem;
     }
     .instagram-post {
-        width: calc(33.33% - 10px);
+        width: calc(33.33% - 10px); /* Tři sloupce na menších zařízeních */
         max-width: none;
     }
 }
 
 @media (max-width: 500px) {
     .instagram-post {
-        width: calc(50% - 10px);
+        width: calc(50% - 10px); /* Dva sloupce na mobilních zařízeních */
     }
 }
-
-
