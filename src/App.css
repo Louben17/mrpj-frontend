@@ -49,24 +49,58 @@ p {
 }
 
 .instagram-post {
-    width: calc(25% - 10px); /* Čtyři sloupce */
-    max-width: 250px; /* Maximální šířka */
-    height: 250px; /* Maximální výška pro čtverce */
-    overflow: hidden; /* Skrytí přetékajícího obsahu */
-    /* Zrušení zaoblených rohů a zvětšování při hover */
-    border-radius: 0; /* Zrušení zaoblených rohů */
-    box-shadow: none; /* Zrušení stínu */
-    transition: none; /* Zrušení efektu při najetí myší */
+    position: relative;
+    width: calc(25% - 10px);
+    max-width: 250px;
+    height: 250px;
+    overflow: hidden;
 }
 
-.instagram-post img,
-.instagram-post video {
+.instagram-post img, .instagram-post video {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Zajištění, že obrázky/videa vyplní celý prostor */
+    object-fit: cover;
 }
 
-/* Responsivní úpravy */
+.instagram-post .thumbnail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.instagram-post video {
+    display: none;
+}
+
+.instagram-post.playing video {
+    display: block;
+}
+
+.instagram-post.playing .thumbnail {
+    display: none;
+}
+
+.error {
+    color: red;
+}
+
+.footer {
+    background-color: #e6e6d1;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.footer p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #666;
+}
+
 @media (max-width: 800px) {
     h1 {
         font-size: 1.5rem;
@@ -75,13 +109,13 @@ p {
         font-size: 0.9rem;
     }
     .instagram-post {
-        width: calc(33.33% - 10px); /* Tři sloupce na menších zařízeních */
+        width: calc(33.33% - 10px);
         max-width: none;
     }
 }
 
 @media (max-width: 500px) {
     .instagram-post {
-        width: calc(50% - 10px); /* Dva sloupce na mobilních zařízeních */
+        width: calc(50% - 10px);
     }
 }
