@@ -4,59 +4,31 @@ body {
     background-color: #ffffff;
 }
 
-.App {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-.header {
-    padding: 20px;
+/* Hlavní container pro feed */
+.instagram-feed {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
     box-sizing: border-box;
 }
 
-.logo {
-    max-width: 75%;
-    height: auto;
-    margin-bottom: 20px;
-}
-
-h1 {
-    font-size: 1.8rem;
-    color: #333;
-    margin-bottom: 10px;
-}
-
-p {
-    font-size: 1rem;
-    color: #666;
-    margin-bottom: 30px;
-}
-
-.main-content {
-    flex-grow: 1;
-    padding: 0 20px;
-}
-
-.instagram-feed {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
+/* Styling pro jednotlivé posty */
 .instagram-post {
     position: relative;
-    width: calc(25% - 10px);
-    max-width: 250px;
-    height: 250px;
+    width: 100%;
+    padding-bottom: 100%; /* Vytvoří čtvercový aspect ratio */
     overflow: hidden;
 }
 
-.instagram-post img, .instagram-post video {
+/* Styling pro obrázky a videa */
+.instagram-post img,
+.instagram-post video {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -73,49 +45,27 @@ p {
     cursor: pointer;
 }
 
-.instagram-post video {
-    display: none;
-}
-
-.instagram-post.playing video {
-    display: block;
-}
-
-.instagram-post.playing .thumbnail {
-    display: none;
-}
-
-.error {
-    color: red;
-}
-
-.footer {
-    background-color: #e6e6d1;
-    padding: 10px;
-    margin-top: 20px;
-}
-
-.footer p {
-    margin: 0;
-    font-size: 0.9rem;
-    color: #666;
-}
-
+/* Media queries pro responzivitu */
 @media (max-width: 800px) {
-    h1 {
-        font-size: 1.5rem;
-    }
-    p {
-        font-size: 0.9rem;
-    }
-    .instagram-post {
-        width: calc(33.33% - 10px);
-        max-width: none;
+    .instagram-feed {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
 @media (max-width: 500px) {
-    .instagram-post {
-        width: calc(50% - 10px);
+    .instagram-feed {
+        grid-template-columns: repeat(2, 1fr);
     }
+}
+
+/* Ostatní styly mohou zůstat stejné */
+.error {
+    color: red;
+    grid-column: 1 / -1; /* Roztáhne chybovou zprávu přes všechny sloupce */
+}
+
+/* Pro loading stav */
+.instagram-feed p {
+    grid-column: 1 / -1;
+    text-align: center;
 }
